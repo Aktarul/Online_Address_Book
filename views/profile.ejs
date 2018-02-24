@@ -1,0 +1,50 @@
+<!-- views/profile.ejs -->
+<!doctype html>
+<html>
+<head>
+    <title>Online Address Book</title>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <style>
+        body        { padding-top:80px; word-wrap:break-word; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1 style="display: inline;"> Profile Page</h1> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+
+            <% if (user.local.email) { %>
+            <p>
+                <strong>id</strong>: <%= user._id %> &nbsp;
+                <strong>email</strong>: <%= user.local.email %>
+            </p>                
+            <% } %>
+
+        <a href="/logout" class="btn btn-default btn-sm" style="display: inline;">Logout</a>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Show Addresses here, row 1: Column 1</p>
+        </div>
+
+        <div class="col-sm-6">
+            <p>Show Addresses here, row 1: Column 2</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <p>Show Addresses here, row 1: Column 1</p>
+        </div>
+
+        <div class="col-sm-6">
+            <p>Show Addresses here, row 1: Column 2</p>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
