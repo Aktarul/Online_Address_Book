@@ -1,0 +1,34 @@
+{
+  "name": "authentcation_and_logins",
+  "version": "1.0.0",
+  "description": "login and registration system for local account, google, twitter and facebook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Aktarul/Authentication_and_Logins.git"
+  },
+  "author": "Aktarul Islam",
+  "license": "ISC",
+
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.7",
+
+    "express": "^4.15.5",
+    "express-session": "^1.15.6",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.13",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-facebook": "^2.1.1",
+    "passport-google-oauth": "^1.0.0",
+    "passport-local": "^1.0.0",
+    "passport-twitter": "^1.0.4"
+  }
+}
