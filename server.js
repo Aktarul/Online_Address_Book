@@ -10,6 +10,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 
+var ContactRoute = require('./routes/contact');
+
 var configDB = require('./config/database/index.js');
 mongoose.connect(configDB.url);
 
@@ -30,6 +32,7 @@ app.use(passport.session());
 app.use(flash());
 
 require('./routes/routes.js')(app, passport);
+app.use('/contact',ContactRoute);
 
 app.listen(port);
 console.log('Visit \'localhost:5500\'');

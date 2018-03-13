@@ -46,6 +46,8 @@ module.exports = function(app, passport) {
         failureRedirect : '/connect/local',
         failureFlash : true
     }));
+    
+    
 
 };
 
