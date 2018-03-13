@@ -33,9 +33,11 @@ module.exports = function (passport) {
                     });
 
                 } else {
+                    console.log(req.body);
                     var newUser = new User();
                     newUser.local.email = email;
                     newUser.local.password = newUser.generateHash(password);
+                    newUser.local.name = req.body.name;
 
                     newUser.save(function (err) {
                         if (err) throw err;
