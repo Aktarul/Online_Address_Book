@@ -1,3 +1,4 @@
+var Contact = require('../models/contacts');
 module.exports = function(app, passport) {
     //Hompage
     app.get('/', function(req, res) {
@@ -28,9 +29,23 @@ module.exports = function(app, passport) {
 
     //profile
     app.get('/profile', isLoggedIn, function(req, res) {
-        res.render('profile.ejs', {
-            user : req.user
+        Contact.find({
+            userId: req.user._id
+        }, (err, contacts) => {
+            if(err){
+                return res.status(404).json({
+                    message: err,
+                    success: false
+                });
+            }
+            else {
+                res.render('profile.ejs', {
+                    contacts: contacts,
+                    user: req.user
+                });
+            }
         });
+
     });
 
     //logout
@@ -46,8 +61,6 @@ module.exports = function(app, passport) {
         failureRedirect : '/connect/local',
         failureFlash : true
     }));
-    
-    
 
 };
 

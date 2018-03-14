@@ -3,8 +3,18 @@
 <html>
 <head>
     <title>Online Address Book</title>
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous">
+    </script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style>
         body        { padding-top:80px; word-wrap:break-word; }
     </style>
@@ -13,38 +23,49 @@
 <div class="container">
 
     <div class="page-header text-center">
-        <h1 style="display: inline;"> Profile Page</h1> &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; 
+        <% if (user.local.email) { %>
+            <h1 style="display: inline;"> <%= user.local.name %>'s Contacts </h1>&nbsp;&nbsp; &nbsp;&nbsp;
 
-            <% if (user.local.email) { %>
-            <p>
-                <strong>Name</strong>: <%= user.local.name %> &nbsp;
+            <p>&nbsp;
                 <strong>id</strong>: <%= user._id %> &nbsp;
                 <strong>email</strong>: <%= user.local.email %>
             </p>                
             <% } %>
 
-        <a href="/logout" class="btn btn-default btn-sm" style="display: inline;">Logout</a>
+        <a href="/logout" class="btn btn-default btn-sm" style="display: inline;">Logout</a> <hr>
 
-    </div>
-    <div class="row">
-        <div class="col-sm-6">
-            <p>Show Addresses here, row 1: Column 1</p>
+
+
+     <table class="table">
+        <thead>
+        <tr>
+            <th>Firstname</th>
+            <th>Lastname</th>
+            <th>Email</th>
+            <th>Phone</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <% for(var i=0; i<contacts.length; i++) {%>
+
+        <tr class="success" data-toggle="modal" data-target="#myModal">
+
+            <td><%= contacts[i].first_name  %></td>
+            <td><%= contacts[i].last_name  %></td>
+            <td><%= contacts[i].email_address  %></td>
+            <td><%= contacts[i].mobile_number %></td>
+
+        </tr>
+        <% } %>
+        </tbody>
+
+    </table>
+
+        <div class="container">
+                <a href="/createContact" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Add Contact </a>
         </div>
 
-        <div class="col-sm-6">
-            <p>Show Addresses here, row 1: Column 2</p>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-sm-6">
-            <p>Show Addresses here, row 1: Column 1</p>
-        </div>
-
-        <div class="col-sm-6">
-            <p>Show Addresses here, row 1: Column 2</p>
-        </div>
-    </div>
 
 </div>
 </body>

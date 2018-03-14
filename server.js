@@ -11,9 +11,14 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 
 var ContactRoute = require('./routes/contact');
+var viewRoute = require('./routes/viewRoute');
 
 var configDB = require('./config/database/index.js');
-mongoose.connect(configDB.url);
+mongoose.connect(configDB.url, (err) => {
+    if (err) {
+        console.log(err );
+    }
+});
 
 require('./config/passport')(passport);
 
@@ -33,6 +38,7 @@ app.use(flash());
 
 require('./routes/routes.js')(app, passport);
 app.use('/contact',ContactRoute);
+app.use('/',viewRoute);
 
 app.listen(port);
 console.log('Visit \'localhost:5500\'');
