@@ -44,7 +44,7 @@
         <a href="/logout" class="btn btn-default btn-sm">Logout</a> <hr>
         </div>
 
-     <table class="table">
+     <table class="table" style="font-size: 130%;">
         <thead>
         <tr>
             <th>Firstname</th>
@@ -57,17 +57,26 @@
 
         <% for(var i=0; i<contacts.length; i++) {%>
 
-        <tr class="success" data-toggle="modal" data-target="#myModal">
+        <tr class="success" data-toggle="modal" data-target="#myModal" >
 
             <td><%= contacts[i].first_name  %></td>
             <td><%= contacts[i].last_name  %></td>
             <td><%= contacts[i].email_address  %></td>
             <td><%= contacts[i].mobile_number %></td>
             <td>
+                <!--
+                <a href="">
                 <div class="w3-padding w3-xlarge w3-text-orange">
                     <i class="material-icons">delete</i>
                 </div>
+                </a>
+                -->
+                <form action="/deleteContact/<%= contacts[i]._id %>" method="get" >
+                    <button type="submit" class="btn btn-warning btn-lg btn-primary btn-sm"nod>delete</button>
+                </form>
             </td>
+
+
 
         </tr>
         <% } %>

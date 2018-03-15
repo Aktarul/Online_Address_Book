@@ -38,4 +38,18 @@ router.post('/createContact', function(req, res) {
     });
 });
 
+router.get('/deleteContact/:id', function(req, res){
+    Contact.findByIdAndRemove(req.params.id, (err) => {
+        if(err){
+            return res.status(404).json({
+                message: err,
+                success: false
+            });
+        }
+        else {
+            return res.redirect('/profile');
+        }
+    });
+});
+
 module.exports = router;
