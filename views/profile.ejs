@@ -2,6 +2,12 @@
 <!doctype html>
 <html>
 <head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
     <title>Online Address Book</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -17,24 +23,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <style>
         body        { padding-top:80px; word-wrap:break-word; }
+        .material-icons {vertical-align:-14%}
     </style>
 </head>
 <body>
 <div class="container">
 
-    <div class="page-header text-center">
+    <div class="page-header">
+        <div align="center" >
         <% if (user.local.email) { %>
-            <h1 style="display: inline;"> <%= user.local.name %>'s Contacts </h1>&nbsp;&nbsp; &nbsp;&nbsp;
+            <h1 style="display: inline;"> <%= user.local.name %>'s Contacts </h1>&nbsp;&nbsp;<br> &nbsp;&nbsp;
 
-            <p>&nbsp;
+
                 <strong>id</strong>: <%= user._id %> &nbsp;
                 <strong>email</strong>: <%= user.local.email %>
-            </p>                
-            <% } %>
+        <% } %>
 
-        <a href="/logout" class="btn btn-default btn-sm" style="display: inline;">Logout</a> <hr>
-
-
+        </div>
+        <div align="right">
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a> <hr>
+        </div>
 
      <table class="table">
         <thead>
@@ -55,6 +63,11 @@
             <td><%= contacts[i].last_name  %></td>
             <td><%= contacts[i].email_address  %></td>
             <td><%= contacts[i].mobile_number %></td>
+            <td>
+                <div class="w3-padding w3-xlarge w3-text-orange">
+                    <i class="material-icons">delete</i>
+                </div>
+            </td>
 
         </tr>
         <% } %>
@@ -62,7 +75,7 @@
 
     </table>
 
-        <div class="container">
+        <div class="container" align="center">
                 <a href="/createContact" class="btn btn-default"><span class="glyphicon glyphicon-plus-sign"></span> Add Contact </a>
         </div>
 
