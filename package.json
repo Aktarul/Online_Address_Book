@@ -12,14 +12,12 @@
   },
   "author": "Aktarul Islam",
   "license": "ISC",
-
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "ejs": "^2.5.7",
-
     "express": "^4.15.5",
     "express-session": "^1.15.6",
     "method-override": "^2.3.9",
