@@ -50,7 +50,7 @@ var getContact = (req, res, next) => {
             });
         }
     });
-}
+};
 
 var getAllContact = (req, res, next) => {
     Contact.find({
@@ -69,7 +69,7 @@ var getAllContact = (req, res, next) => {
             });
         }
     });
-}
+};
 
 var updateContact = (req, res, next) => {
     var firstName = req.body.first_name,
@@ -108,7 +108,7 @@ var updateContact = (req, res, next) => {
         }
     });
 
-}
+};
 
 var deleteContact = (req, res, next) => {
     Contact.findByIdAndRemove(req.params.id, (err) => {
@@ -125,7 +125,7 @@ var deleteContact = (req, res, next) => {
             });
         }
     });
-}
+};
 
 module.exports = {
     createContact,
@@ -133,4 +133,4 @@ module.exports = {
     getContact,
     deleteContact,
     updateContact
-}
+};
