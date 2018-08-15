@@ -1,5 +1,5 @@
 # Online_Address_Book
-_Online address book project with node.js (Back End), angular.js (Front End) and MongoDB (Database) given by E-Commerce teacher_
+This platform is built to store contact information online. Peoples can store and manage a lot of addresses in this platform. People will get rid of memorising or recording contacts and can access anywhere in the world through internet.
 
 ### Quick start
   1. Clone this repositry : `git clone https://github.com/Aktarul/Online_Address_Book.git`
